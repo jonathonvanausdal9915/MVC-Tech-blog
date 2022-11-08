@@ -13,3 +13,28 @@
 .body {
     background-color: lemonchiffon;
 }
+.login {
+    width:1000px;
+    height:400px;
+    border-style:solid;
+    margin:auto;
+
+}
+.loginh2 {
+    width:100%;
+    border-style:solid;
+    background-color:black;
+    color:lemonchiffon;
+}
+.format {
+    display:flex;
+    flex-direction: column;
+}
+#username{
+    height:50px;
+
+}
+#password{
+    height:50px;
+
+}
