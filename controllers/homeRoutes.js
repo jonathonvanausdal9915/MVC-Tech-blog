@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Workout, User, Recipe, Goal} = require('../models');
+const {Blog, User,} = require('../models');
 const withAuth = require('../utils/auth');
 const {where} = require("sequelize");
 
