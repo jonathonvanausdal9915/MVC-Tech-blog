@@ -25,7 +25,7 @@
               <li class="nav-item">
                 <a href="/dashboard" class="btn btn-dark btn-lg">Home <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
               </li>
-              <div class="title">The Tech Blog</div>
+              <div class="title">Your Dashboard</div>
               
               <li class="nav-item">
                 <a href="/dashboard" class="btn btn-dark btn-lg">Dashboard <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
@@ -49,23 +49,24 @@
       <br>
       <br>
       <br>
-            <form class="login-form"> 
-                <div class="login">
-                    <h2 class="loginh2">Login</h2>
-                    <div class="format"> 
-                        <h2>Username</h2>
-                        <input class="form-input" type="text" id="username" name="username"/>
-                        <br>
-                        <h2>Password</h2>
-                        <input class="form-input" type="password" id="password" name="password"/>
-                        <br>
-                        <button onclick="loginHandler()" type="button" class="btn btn-dark btn-lg" id="signinbtn">Sign In </button>
-                    </div>
-                    <a href="">Sign Up Instead</a>
-                
-                </div>
-            </form>
-    
+      <form class="login-form"> 
+        <div class="login">
+            <h2 class="loginh2">Create New Post</h2>
+            <div class="format"> 
+                <h2>Title</h2>
+                <input class="form-input" type="text" id="title" name="username"/>
+                <br>
+                <h2>Content</h2>
+                <input class="form-input" type="text" id="content" name="password"/>
+                <br>
+                <button onclick="loginHandler()" type="button" class="btn btn-dark btn-lg" id="signinbtn">Create </button>
+            </div>
+            
+        
+        </div>
+        <button onclick="loginHandler()" type="button" class="btn btn-dark btn-lg" id="newpostbtn">+ New Post</button>
+        
+    </form>
 
       
     
