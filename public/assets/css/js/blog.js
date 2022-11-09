@@ -1,22 +1,21 @@
-const workoutHandler = async () => {
+const blogHandler = async () => {
 
-    const name = document.querySelector('#name').value.trim();
-    const activity = document.querySelector('#activity').value.trim();
-    const date = document.querySelector('#date').value.trim();
+    const title = document.querySelector('#title').value.trim();
+    const content = document.querySelector('#content').value.trim();
 
-    if (name && activity && date) {
-        const response = await fetch('/api/workout', {
+    if (title && content) {
+        const response = await fetch('/api/blogs', {
             method: 'POST',
-            body: JSON.stringify({name, activity, date}),
+            body: JSON.stringify({title,content}),
             headers: {'Content-Type': 'application/json'},
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace('/home');
         } else {
             alert(response.statusText);
         }
     }
 };
 
-document.querySelector('.workout-form').addEventListener('submit', workoutHandler);
+document.querySelector('.blog-form').addEventListener('submit', blogHandler);
