@@ -39,9 +39,13 @@ router.post('/login', async (req, res) => {
         console.log(req.session);
 
     } catch (err) {
-        res.status(400).json(err);
+        res.status(400).json(err).json({message: 'Incorrect email or password'});;
+        
     }
 });
+
+
+
 router.get('/', async (req, res) => {
     try {
         
@@ -53,6 +57,9 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+
 
 
 module.exports = router;
