@@ -32,7 +32,7 @@ Blog.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'workout',
+    modelName: 'blog',
 });
 
 module.exports = Blog;
