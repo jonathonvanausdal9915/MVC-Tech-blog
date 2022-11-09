@@ -21,102 +21,38 @@ router.get('/', async (req, res) => {
     }
 });
 
-// router.get('/dashboard', withAuth, async (req, res) => {
-//     try {
-//         console.log(req.session);
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        console.log(req.session);
 
-//         const workoutlist = await Workout.findAll({where:{user_id: req.session.user_id}}, {
-//         include: [{model: Workout}],});
+        const bloglist = await Blog.findAll({where:{user_id: req.session.user_id}}, {
+        include: [{model: Blog}],});
+        res.render('dashboard', {
+            bloglist,
+            logged_in: true
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
-//         const goallist = await Goal.findAll({where:{user_id: req.session.user_id}}, {
-//             include: [{model: Goal}],});
 
-//         const recipelist = await Recipe.findAll({where:{user_id: req.session.user_id}}, {
-//         include: [{model: Recipe}],});
 
-//         res.render('dashboard', {
-//             workoutlist,  goallist, recipelist,
-//             logged_in: true
-//         });
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
 
-// router.get('/workout', withAuth, async (req, res) => {
-//     try {
-//         console.log(req.session);
-//         const userData = await User.findByPk(req.session.user_id, {
-//             attributes: {exclude: ['password']},
-//             include: [{model: Workout}]
-//         });
-//         const user = userData.get({plain: true});
-//         res.render('workout', {
-//             ...user,
-//             logged_in: true
-//         });
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json(err);
-//     }
-// });
 
-// router.get('/profile', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.findByPk(req.session.user_id, {
-//             attributes: {exclude: ['password']},
-//         });
-//         const user = userData.get({plain: true});
-//         res.render('profile', {
-//             ...user,
-//             logged_in: true
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
-// router.get('/goal', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.findByPk(req.session.user_id, {
-//             attributes: {exclude: ['password']},
-//         });
-//         const user = userData.get({plain: true});
-//         res.render('goal', {
-//             ...user,
-//             logged_in: true
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
 
-// router.get('/recipe', withAuth, async (req, res) => {
-//     try {
-//         const userData = await User.findByPk(req.session.user_id, {
-//             attributes: {exclude: ['password']},
-//         });
-//         const user = userData.get({plain: true});
-//         res.render('recipe', {
-//             ...user,
-//             logged_in: true
-//         });
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+router.get('/signup', (req, res) => {
+    res.render('signup')
+});
 
-// router.get('/signup', (req, res) => {
-//     res.render('signup')
-// });
-
-// router.get('/login', (req, res) => {
-//     if (req.session.logged_in) {
-//         res.redirect('/dashboard');
-//         return;
-//     }
-//     res.render('/');
-// })
+router.get('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+    }
+    res.render('signup');
+})
 
 module.exports = router;
