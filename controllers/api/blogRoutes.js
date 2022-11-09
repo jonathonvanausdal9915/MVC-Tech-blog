@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Blog, User} = require('../../models');
+const {Blog} = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
@@ -10,19 +10,9 @@ router.post('/', async (req, res) => {
         req.session.save(() => {
             req.session.user_id = newBlog.user_id;
             req.session.logged_in = true;
-            res.status(200).json(newBlog);
+            res.status(200).json(newBlog).console.log("Sucessfull!");
+
         });
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-router.get('/', async (req, res) => {
-    try {
-        
-        const blogData = await Blog.findAll(req.body);
-        res.status(200).json(blogData);
-       
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

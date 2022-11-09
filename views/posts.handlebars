@@ -16,33 +16,23 @@
             <li class="nav-item">
                 <a href="/signup" class="btn btn-dark btn-lg">Sign Up <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
             </li>
-         
+            <li class="nav-item">
+                <a href="/login" class="btn btn-dark btn-lg">Login <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
+            </li>
+          
         </ul>
     </div>
     </div>
 </nav>
 <br>
-<br>
-<br>
-<br>
-<form class="login-form">
-    <div class="login">
-        <h2 class="loginh2">Login</h2>
-        <div class="format">
-            <h2>Username</h2>
-            <input class="form-input" type="text" id="user_name" name="username"/>
-            <br>
-            <h2>Password</h2>
-            <input class="form-input" type="password" id="password" name="password"/>
-            <br>
-            <button onclick="loginHandler()" type="button" class="btn btn-dark btn-lg" id="signinbtn">Sign In</button>
+  <div style="color: white" class="goals" id="workoutlist">Workouts
+        <div style="color: white">
+            {{#each workoutlist}}
+                <div style="color: white">
+                    {{#dataValues}}
+                        <li>{{name}} -&nbsp;{{activity}}</li>
+                    {{/dataValues}}
+                </div>
+            {{/each}}
         </div>
-        <a href="/signup">Sign Up Instead</a>
-
     </div>
-</form>
-
-
-</body>
-</html>
-<script src="assets/js/login.js"></script>

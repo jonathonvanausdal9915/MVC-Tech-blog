@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
             },],
         });
         const blogs = blogData.map((blog) => blog.get({plain: true}));
-        res.render('login', {
+        res.render('posts', {
             blogs,
             logged_in: req.session.logged_in
         });
@@ -21,14 +21,31 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/posts', withAuth, async (req, res) => {
     try {
         console.log(req.session);
 
         const bloglist = await Blog.findAll({where:{user_id: req.session.user_id}}, {
         include: [{model: Blog}],});
-        res.render('dashboard', {
+        res.render('posts', {
             bloglist,
+            logged_in: true
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+router.get('/blogs', withAuth, async (req, res) => {
+    try {
+        console.log(req.session);
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: {exclude: ['password']},
+            include: [{model: Blog}]
+        });
+        const user = userData.get({plain: true});
+        res.render('posts', {
+            ...user,
             logged_in: true
         });
     } catch (err) {
@@ -41,18 +58,39 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 
 
-
-
 router.get('/signup', (req, res) => {
     res.render('signup')
 });
 
-router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/dashboard');
-        return;
+router.get('/login', async (req, res) => {
+    try {
+        
+
+        
+        res.render('login', {
+            
+            
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
-    res.render('signup');
-})
+});
+router.get('/dashboard', async (req, res) => {
+    try {
+        
+
+        
+        res.render('dashboard', {
+            
+            
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
+
 
 module.exports = router;

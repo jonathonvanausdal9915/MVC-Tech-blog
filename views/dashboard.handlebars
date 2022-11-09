@@ -3,27 +3,17 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          
-         
-          
-          
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a href="/home" class="btn btn-dark btn-lg">Posts <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
+               <a href="/posts" id="profilebtn" class="btn btn-dark btn-lg">View Posts</a>
               </li>
               <div class="title">Your Dashboard</div>
               <li class="nav-item">
                 <a href="/login" class="btn btn-dark btn-lg">Logout <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
               </li>
-             
-             
-                
-           
+            </ul>
           </div>
-          
-         
-        </div>
       </nav>
       <br>
       <br>
@@ -39,17 +29,14 @@
                 <h2>Content</h2>
                 <input class="form-input" type="text" id="content"/>
                 <br>
-                <button onclick="blogHandler" type="button" class="btn btn-dark btn-lg" id="blogbtn">Create </button>
+                <h2>Date</h2>
+                <input class="form-input" type="text" id="date"/>
+                <br>
+                <button onclick="blogHandler" type="submit" class="btn btn-dark btn-lg" id="blogbtn">Create </button>
             </div>
-            
-        
         </div>
-        <button onclick="" type="button" class="btn btn-dark btn-lg" id="newpostbtn">+ New Post</button>
-        
+       <a href="/dashboard" class="btn btn-dark btn-lg">+ New Post</a>
     </form>
 
-      
-    
 </body>
-</html>
 <script src="assets/js/blog.js"></script>
