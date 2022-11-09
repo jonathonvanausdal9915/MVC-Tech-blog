@@ -17,5 +17,17 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+router.get('/', async (req, res) => {
+    try {
+        
+        const blogData = await Blog.findAll(req.body);
+        res.status(200).json(blogData);
+       
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router;
