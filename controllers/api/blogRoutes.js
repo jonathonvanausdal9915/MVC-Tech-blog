@@ -19,5 +19,19 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/data', async (req, res) => {
+        try {
+            
+            const userData = await Blog.findAll(req.body);
+            res.status(200).json(userData);
+           
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
+    });
+    
+    
+
 
 module.exports = router;

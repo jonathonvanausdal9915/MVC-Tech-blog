@@ -47,3 +47,17 @@
 #content {
     height:100px;
 }
+.blog-posts {
+    height:200px;
+    width:50%;
+    border-style:solid;
+    margin:auto;
+    background-color:white;
+    color:black;
+}
+.titlee {
+    background-color:black;
+    color:white;
+    height:40px;
+    width:100%;
+}
