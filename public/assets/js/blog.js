@@ -12,7 +12,7 @@ const blogHandler = async () => {
         });
 
         if (response.ok) {
-            document.location.replace('/posts');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
