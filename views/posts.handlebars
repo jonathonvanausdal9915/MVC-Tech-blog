@@ -4,14 +4,11 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-               <button class="btn btn-dark btn-lg">Home</button>
+                <button class="btn btn-dark btn-lg">Home</button>
             </li>
-           
             <div class="title">The Tech Blog</div>
             <li class="nav-item">
                 <a href="/signup" class="btn btn-dark btn-lg">Sign Up <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
@@ -19,17 +16,27 @@
             <li class="nav-item">
                 <a href="/login" class="btn btn-dark btn-lg">Login <i class="fa fa-home fa-1x" aria-hidden="true"></i></a>
             </li>
-          
         </ul>
-    </div>
     </div>
 </nav>
 <br>
 <br>
 <br>
+
 <div class="blog-posts">
     <h2 class="titlee"><b>Title</b></h2>
     <p>This is an example of a blog post</p>
     <p>Date:11/9/2022</p>
     <p>User:Jonathon</p>
 </div>
+
+{{#each blogs as |blog| }}
+    <div class="blog-posts">
+            <h2 class="titlee">{{blog.title}}</h2>
+            <p>{{blog.content}}</p>
+            <p>{{blog.date}}</p>
+            <p>{{blog.id}}</p>
+    </div>
+{{/each}}
+
+</body>

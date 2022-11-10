@@ -5,8 +5,10 @@ const {where} = require("sequelize");
 
 router.get('/', async (req, res) => {
     try {
+
       // Get all projects and JOIN with user data
-      const projectData = await Blog.findAll({
+
+      const blogData = await Blog.findAll({
         include: [
           {
             model: User,
@@ -16,12 +18,12 @@ router.get('/', async (req, res) => {
       });
   
       // Serialize data so the template can read it
-      const projects = projectData.map((project) => project.get({ plain: true }));
+      const blogs = blogData.map((project) => project.get({ plain: true }));
   
       // Pass serialized data and session flag into template
       res.render('posts', { 
-        projects, 
-        logged_in: req.session.logged_in 
+        blogs,
+          logged_in: true
       });
     } catch (err) {
       res.status(500).json(err);
